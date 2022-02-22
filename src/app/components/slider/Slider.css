@@ -1,0 +1,54 @@
+.swiper {
+  width: 1200px;
+  height: 320px;
+  margin: 0px auto;
+  margin-top: 40px;
+  background: #ffffff;
+  border-radius: 24px;
+}
+
+.slaid-information {
+  margin-left: 64px;
+}
+
+.background-first {
+  border-radius: 24px;
+  background: url("../../../assets/slide-first.png");
+}
+
+.background-second {
+  border-radius: 24px;
+  background: url("../../../assets/slide-second.png");
+}
+
+.background-third {
+  border-radius: 24px;
+  background: url("../../../assets/slide-third.png");
+}
+
+h2 {
+  margin: 0px;
+  font-size: 48px;
+  padding-top: 56px;
+  padding-bottom: 16px;
+}
+
+p {
+  margin: 0px;
+  font-size: 16px;
+  padding-bottom: 40px;
+}
+
+.btn-slide {
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  background: #07C88E;
+  border-radius: 8px;
+  padding: 12px 24px;
+  border: 0px;
+  margin-bottom: 56px;
+}
+
+/*# sourceMappingURL=Slider.css.map */

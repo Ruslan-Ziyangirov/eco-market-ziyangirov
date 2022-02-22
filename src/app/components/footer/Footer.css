@@ -1,0 +1,27 @@
+.footer-wrapper {
+  width: 1200px;
+  margin: 0px auto;
+  display: flex;
+  padding: 24px 0px;
+}
+
+.mail {
+  display: flex;
+  align-items: center;
+}
+.mail p {
+  padding-bottom: 0px;
+  margin-left: 10px;
+}
+
+.call {
+  margin-left: 32px;
+  display: flex;
+  align-items: center;
+}
+.call p {
+  padding-bottom: 0px;
+  margin-left: 10px;
+}
+
+/*# sourceMappingURL=Footer.css.map */

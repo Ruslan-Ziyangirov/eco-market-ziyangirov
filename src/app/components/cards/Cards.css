@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.сards-wrapper {
+  width: 1200px;
+  margin: 48px auto 108px;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  width: 588px;
+  margin-right: 25px;
+  background: url("../../../assets/bg-collection-point.png");
+  border-radius: 16px;
+  border: 1px solid #efefef;
+}
+
+.card:last-child {
+  margin-right: 0px;
+  background: url("../../../assets/bg-eco-market.png");
+}
+
+.information-about-card {
+  text-align: left;
+  padding-left: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.information-about-card h3 {
+  font-size: 32px;
+  margin-bottom: 14px;
+  margin-top: 0px;
+}
+.information-about-card p {
+  font-size: 16px;
+  margin-bottom: 46px;
+  padding-bottom: 0px;
+}
+.information-about-card .btn-arrow {
+  border: 0px;
+  background: rgba(62, 80, 114, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px;
+}
+
+/*# sourceMappingURL=Cards.css.map */
