@@ -3,6 +3,8 @@ import {FC} from "react";
 import {Link} from "react-router-dom";
 import balance from "../../../svg-icons/balance.svg";
 import avatar from  "../../../svg-icons/avatar.svg"
+import ecorus from "../../../svg-icons/ecorus-logo.svg";
+
 import greenRectangle from "../../../svg-icons/green-rectangle.svg"
 
 interface Props{
@@ -33,7 +35,7 @@ export const Header = () => {
     return(
         <header>
             <div className="header">
-                <Icon name="main-logo" width="94" height="18" />
+                <img src={ecorus}/>
                 <nav>
                     <Link to="/" className="main">Главная</Link>
                     <Link to="map">Пункты сбора</Link>

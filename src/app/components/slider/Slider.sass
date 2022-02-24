@@ -1,7 +1,14 @@
+.slider
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 1300px
+  margin: 0 auto
+
 .swiper
   width: 1200px
   height: 320px
-  margin: 0px auto
+  margin: 0 auto
   margin-top: 40px
   background: #ffffff
   border-radius: 24px
@@ -22,7 +29,7 @@
   background: url("../../../assets/slide-third.png")
 
 h2
-  margin: 0px
+  margin: 0
   font-size: 48px
   padding-top: 56px
   padding-bottom: 16px
@@ -42,6 +49,54 @@ p
   padding: 12px 24px
   border: 0px
   margin-bottom: 56px
+
+
+.swiper-button-prev-new
+  background: #FFFFFF no-repeat center
+  box-shadow: 0px 4px 24px rgba(0, 11, 38, 0.12)
+  border-radius: 50px
+  height: 44px
+  width: 44px
+  z-index: 2
+  position: relative
+  top: 15px
+  left: 25px
+  cursor: pointer
+  display: flex
+  align-items: center
+  justify-content: center
+
+.swiper-button-prev-new::after
+  display: none
+
+
+.swiper-button-next-new
+  background: #FFFFFF no-repeat center
+  box-shadow: 0px 4px 24px rgba(0, 11, 38, 0.12)
+  border-radius: 50px
+  height: 44px
+  width: 44px
+  z-index: 2
+  position: relative
+  left: -25px
+  cursor: pointer
+  top: 15px
+  display: flex
+  align-items: center
+  justify-content: center
+
+.swiper-button-next-new::after
+  display: none
+
+
+  .swiper-button-next-u, .swiper-button-prev-u
+    display: flex
+    justify-content: center
+    align-items: center
+
+
+
+
 
 
 
