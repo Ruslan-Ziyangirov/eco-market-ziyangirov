@@ -6,6 +6,9 @@ import avatar from  "../../../svg-icons/avatar.svg"
 import ecorus from "../../../svg-icons/ecorus-logo.svg";
 
 import greenRectangle from "../../../svg-icons/green-rectangle.svg"
+import {observer} from "mobx-react";
+import {useStores} from "../../../utils/use-stores-hook";
+import {SignIn} from "../Modals/SignIn/SignIn";
 
 interface Props{
     name:string,
@@ -30,7 +33,13 @@ export const Icon: FC<Props> = ({ name, height,width}) => {
 }
 
 
-export const Header = () => {
+export const Header = observer(() => {
+
+    const {modalStore: { setCurrentModal } } = useStores();
+
+    const openModal = () =>{
+        setCurrentModal(SignIn);
+    }
 
     return(
         <header>
@@ -49,14 +58,11 @@ export const Header = () => {
                         <span>Казань</span>
                     </button>
 
-                    <div className="balance">
-                        <img className="balance-logo" src={balance}/>
-                        <span>1000</span>
-                    </div>
 
-                    <button className="my-account">
-                        <img className="avatar" src={avatar}/>
-                        <span>Алексей</span>
+
+                    <button className="sign-in" onClick={openModal}>
+                        <Icon name="sign-in" height="20" width="20"/>
+                        <span>Войти</span>
                     </button>
                 </div>
             </div>
@@ -65,4 +71,4 @@ export const Header = () => {
 
         </header>
     )
-}
+});
