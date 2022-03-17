@@ -2,7 +2,7 @@ import {Modal} from "../Modal";
 import {observe} from "web-vitals/dist/modules/lib/observe";
 import {observer} from "mobx-react";
 import {useStores} from "../../../../utils/use-stores-hook";
-import {FC} from "react";
+import {FC, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import "./SignIn.sass"
 import {Input} from "../ui/inputs/Input";
@@ -13,6 +13,7 @@ import {SignInWithCode} from "../SignInWithCode/SignInWithCode";
 import {signInScheme} from "../../../schemas/SchemForValidate";
 import {SignInForPartner} from "../SignInForPartner/SignInForPartner";
 import {Registration} from "../Registration/Registration";
+
 
 
 interface Props{
@@ -41,6 +42,7 @@ export const Icon: FC<Props> = ({ name, height,width}) => {
 
 export const SignIn = observer( () =>{
     const { modalStore: {clearCurrentModal, setCurrentModal} } = useStores();
+
 
     const onSignInWithCode = () =>{
         clearCurrentModal();

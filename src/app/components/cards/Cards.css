@@ -42,5 +42,9 @@
   cursor: pointer;
   padding: 12px;
 }
+.information-about-card .btn-arrow:hover {
+  background: #ffffff;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+}
 
 /*# sourceMappingURL=Cards.css.map */

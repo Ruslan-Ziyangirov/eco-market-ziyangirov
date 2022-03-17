@@ -9,7 +9,7 @@ interface Props{
 
 export const Link:FC<Props> = ({title,color,background}) =>{
     return(
-        <button  type="submit" className="btn-for-modal" style={{
+        <button  type="submit" className="link-for-modal" style={{
             color: `${color}`,
             background: `${background}`
         }}>{title}</button>

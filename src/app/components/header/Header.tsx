@@ -1,11 +1,7 @@
 import './Header.sass';
 import {FC} from "react";
 import {Link} from "react-router-dom";
-import balance from "../../../svg-icons/balance.svg";
-import avatar from  "../../../svg-icons/avatar.svg"
 import ecorus from "../../../svg-icons/ecorus-logo.svg";
-
-import greenRectangle from "../../../svg-icons/green-rectangle.svg"
 import {observer} from "mobx-react";
 import {useStores} from "../../../utils/use-stores-hook";
 import {SignIn} from "../Modals/SignIn/SignIn";

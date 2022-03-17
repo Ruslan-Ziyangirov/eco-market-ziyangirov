@@ -37,13 +37,17 @@
   font-size: 16px;
   cursor: pointer;
 }
+.link-wrapper .btn-as-link:hover {
+  color: #047753;
+}
 
 .error {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   color: #FF4545;
-  padding: 8px 0px 32px 16px;
+  margin: -15px 0px 24px 16px;
+  padding: 0px;
 }
 
 input {
@@ -67,6 +71,10 @@ input::placeholder {
 
 input:last-child {
   margin-bottom: 32px;
+}
+
+input[aria-invalid=true] {
+  border: 2px Solid #FF4545;
 }
 
 /*# sourceMappingURL=SignIn.css.map */

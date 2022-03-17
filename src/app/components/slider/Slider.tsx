@@ -48,6 +48,7 @@ export const Slider = () => {
                     prevEl: '.swiper-button-prev-new'
                 }
                 }
+                loop={true}
                 pagination
                 speed={500}
                 spaceBetween={300}
