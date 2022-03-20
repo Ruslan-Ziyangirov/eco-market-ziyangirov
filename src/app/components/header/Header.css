@@ -1,46 +1,45 @@
+header {
+  border-bottom: 1px solid #E0E0E0;
+}
+
 span {
   font-size: 14px;
   font-weight: 500;
 }
 
 .header {
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   display: flex;
   align-items: center;
   margin: 0 auto;
   padding: 32px 0px 32px 0px;
+  justify-content: space-between;
 }
-.header nav {
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+.navigation nav {
   margin-left: 50px;
   align-items: center;
   display: flex;
 }
-
-a {
+.navigation nav a {
   text-decoration: none;
   margin-right: 25px;
   color: rgba(53, 62, 91, 0.64);
   font-size: 14px;
   font-weight: 500;
 }
-
-a:hover {
-  color: #00040a;
-}
-
-a:last-child {
-  margin-right: 0px;
-}
-
-.main {
+.navigation nav a:hover {
   color: #00040a;
 }
 
 .additional-information {
   display: flex;
   align-items: center;
-  margin-left: 480px;
-  padding-top: 2px;
 }
 
 .city {
@@ -55,21 +54,10 @@ a:last-child {
 .city span {
   color: rgba(0, 11, 38, 0.8);
   margin-left: 5px;
+  font-weight: 400;
 }
 .city span:hover {
   color: rgba(141, 141, 141, 0.8);
-}
-
-.balance {
-  display: flex;
-  align-items: center;
-  margin-left: 45px;
-}
-.balance span {
-  color: black;
-  font-weight: bold;
-  margin-left: 5px;
-  padding-bottom: 2px;
 }
 
 .my-account {
@@ -83,16 +71,8 @@ a:last-child {
 .my-account span {
   margin-left: 5px;
 }
-
-hr {
-  margin: 0px;
-  background: #d3d3d3;
-  height: 1px;
-  border: 0px;
-}
-
-.green-rectangle {
-  margin-left: 254px;
+.my-account span:hover {
+  color: rgba(141, 141, 141, 0.8);
 }
 
 .sign-in {

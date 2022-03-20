@@ -3,7 +3,7 @@ import {FC} from "react";
 import {observer} from "mobx-react";
 import {Modal} from "../Modal";
 import {Field, Form, Formik} from "formik";
-import {Button} from "../ui/buttons/Button";
+import {Button} from "../../ui/buttons/Button";
 import {useStores} from "../../../../utils/use-stores-hook";
 import * as Yup from "yup";
 import {SignIn} from "../SignIn/SignIn";

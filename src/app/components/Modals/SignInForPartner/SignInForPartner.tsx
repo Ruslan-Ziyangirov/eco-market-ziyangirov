@@ -6,7 +6,7 @@ import {EnterTheCode} from "../EnterTheCode/EnterTheCode";
 import {Modal} from "../Modal";
 import {Field, Form, Formik} from "formik";
 import {signInScheme} from "../../../schemas/SchemForValidate";
-import {Button} from "../ui/buttons/Button";
+import {Button} from "../../ui/buttons/Button";
 import {SignInWithCode} from "../SignInWithCode/SignInWithCode";
 import  "./SignInForPartner.sass";
 import {Registration} from "../Registration/Registration";

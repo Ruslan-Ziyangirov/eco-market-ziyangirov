@@ -26,7 +26,6 @@ export const Icon: FC<Props> = ({ name, height,width}) => {
 export const Footer = () =>{
     return(
         <footer>
-            <hr></hr>
             <div className="footer-wrapper">
                 <div className="mail">
                     <Icon name="mail" height={24} width={24}/>

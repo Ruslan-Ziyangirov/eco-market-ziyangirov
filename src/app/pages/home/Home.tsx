@@ -10,7 +10,6 @@ export const Home = () =>{
 
     return(
         <div>
-            <Header/>
             <Slider/>
             <Cards/>
             <Footer/>

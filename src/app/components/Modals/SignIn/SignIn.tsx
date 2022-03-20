@@ -5,8 +5,7 @@ import {useStores} from "../../../../utils/use-stores-hook";
 import {FC, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import "./SignIn.sass"
-import {Input} from "../ui/inputs/Input";
-import {Button} from "../ui/buttons/Button";
+import {Button} from "../../ui/buttons/Button";
 import * as Yup from "yup";
 import {Field, Form, Formik , useFormik} from "formik";
 import {SignInWithCode} from "../SignInWithCode/SignInWithCode";

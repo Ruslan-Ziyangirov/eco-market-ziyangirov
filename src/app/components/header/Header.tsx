@@ -40,22 +40,21 @@ export const Header = observer(() => {
     return(
         <header>
             <div className="header">
-                <img src={ecorus}/>
-                <nav>
-                    <Link to="/" className="main">Главная</Link>
-                    <Link to="map">Пункты сбора</Link>
-                    <Link to="eco-market">ЭкоМаркет</Link>
-                    <Link to="about">О сервисе</Link>
-                </nav>
+                <div className="navigation">
+                    <img src={ecorus}/>
+                    <nav>
+                        <Link to="/" className="main">Главная</Link>
+                        <Link to="map">Пункты сбора</Link>
+                        <Link to="ecomarket">ЭкоМаркет</Link>
+                        <Link to="about">О сервисе</Link>
+                    </nav>
+                </div>
 
                 <div className="additional-information">
                     <button  className="city">
                         <Icon name="city-logo" height="24" width="24"/>
                         <span>Казань</span>
                     </button>
-
-
-
                     <button className="sign-in" onClick={openModal}>
                         <Icon name="sign-in" height="20" width="20"/>
                         <span>Войти</span>
@@ -63,7 +62,6 @@ export const Header = observer(() => {
                 </div>
             </div>
             {/*<img src={greenRectangle} className="green-rectangle"/>*/}
-            <hr></hr>
 
         </header>
     )

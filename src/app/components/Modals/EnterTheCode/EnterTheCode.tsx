@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import "./EnterTheCode.sass"
 import {Field, Form, Formik} from "formik";
-import {Button} from "../ui/buttons/Button";
+import {Button} from "../../ui/buttons/Button";
 import {Modal} from "../Modal";
 import {Icon} from "../SignInWithCode/SignInWithCode";
 import {useStores} from "../../../../utils/use-stores-hook";

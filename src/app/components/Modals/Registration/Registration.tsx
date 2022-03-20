@@ -6,7 +6,7 @@ import {SignInForPartner} from "../SignInForPartner/SignInForPartner";
 import {Modal} from "../Modal";
 import {Field, Form, Formik} from "formik";
 import {signInScheme} from "../../../schemas/SchemForValidate";
-import {Button} from "../ui/buttons/Button";
+import {Button} from "../../ui/buttons/Button";
 
 interface Props{
     name:string,

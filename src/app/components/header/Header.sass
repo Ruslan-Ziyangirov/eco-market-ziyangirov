@@ -2,44 +2,47 @@ $font-stack: Inter, sans-serif
 $primary-color: #00040a
 $secondary-color: rgba(53, 62, 91, 0.64)
 
+header
+  border-bottom: 1px solid #E0E0E0
+
 span
   font-size: 14px
   font-weight: 500
 
 .header
-  width: 1200px
+  max-width: 1200px
+  width: 100%
   display: flex
   align-items: center
   margin: 0 auto
   padding: 32px 0px 32px 0px
+  justify-content: space-between
+
+
+.navigation
+  display: flex
+  align-items: center
 
   nav
     margin-left: 50px
     align-items: center
     display: flex
 
+    a
+      text-decoration: none
+      margin-right: 25px
+      color: $secondary-color
+      font-size: 14px
+      font-weight: 500
 
-a
-  text-decoration: none
-  margin-right: 25px
-  color: $secondary-color
-  font-size: 14px
-  font-weight: 500
+    a:hover
+      color: $primary-color
 
-a:hover
-  color: $primary-color
-
-a:last-child
-  margin-right: 0px
-
-.main
-  color: $primary-color
 
 .additional-information
   display: flex
   align-items: center
-  margin-left: 480px
-  padding-top: 2px
+
 
 .city
   align-items: center
@@ -53,26 +56,16 @@ a:last-child
   span
     color: rgba(0, 11, 38, 0.8)
     margin-left: 5px
+    font-weight: 400
 
   span:hover
     color: rgba(141, 141, 141, 0.8)
 
-.balance
-  display: flex
-  align-items: center
-  margin-left: 45px
-
-  span
-    color: black
-    font-weight: bold
-    margin-left: 5px
-    padding-bottom: 2px
 
 .my-account
   display: flex
   align-items: center
   margin-left: 25px
-
   cursor: pointer
   border: 0px
   background: transparent
@@ -80,14 +73,9 @@ a:last-child
   span
     margin-left: 5px
 
-hr
-  margin: 0px
-  background: #d3d3d3
-  height: 1px
-  border: 0px
+  span:hover
+    color: rgba(141, 141, 141, 0.8)
 
-.green-rectangle
-  margin-left: 254px
 
 .sign-in
   margin-left: 50px
