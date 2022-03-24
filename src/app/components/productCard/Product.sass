@@ -1,10 +1,14 @@
 .product
-  display: flex
+  display: inline-block
   flex-direction: column
   border-radius: 24px
   position: relative
   margin-bottom: 48px
-  margin-right: 24px
+  width: 274px
+
+.product:not(:nth-child(3n))
+  margin-right: 22px
+
 
   h4
     font-weight: 500

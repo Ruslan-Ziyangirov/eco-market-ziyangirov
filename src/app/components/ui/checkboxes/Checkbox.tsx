@@ -3,25 +3,24 @@ import "./CheckBox.sass";
 
 interface Props{
     title: string;
-    background: string;
-    handleOnChange:any;
-    isChecked: boolean;
-    index: number;
+    isChecked: boolean
+    checkHandler:any
+    index?: number
 }
 
-export const Checkbox:FC<Props> = ({title, background, handleOnChange, isChecked, index}) => {
+export const Checkbox:FC<Props> = ({title, isChecked, checkHandler, index}) => {
 
     return(
-        <div>
-            <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={handleOnChange}
-                id={`custom-checkbox-${index}`}
-                style={{background:`${background}`}}
-                value={title}
-            />
-            <label htmlFor={`custom-checkbox-${index}`}>{title}</label>
+        <div className="checkbox-wrapper">
+            <label className="custom-checkbox">
+                <input
+                    type="checkbox"
+                    id={`checkbox-${index}`}
+                    checked={isChecked}
+                    onChange={checkHandler}
+                />
+                <span>{title}</span>
+            </label>
         </div>
     )
 }

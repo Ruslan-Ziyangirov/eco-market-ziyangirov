@@ -1,6 +1,7 @@
 import './Header.sass';
 import {FC} from "react";
 import {Link} from "react-router-dom";
+// @ts-ignore
 import ecorus from "../../../svg-icons/ecorus-logo.svg";
 import {observer} from "mobx-react";
 import {useStores} from "../../../utils/use-stores-hook";

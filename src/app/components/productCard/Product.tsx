@@ -1,5 +1,6 @@
 import "./Product.sass";
 import {FC} from "react";
+// @ts-ignore
 import balance from "../../../assets/balance.png";
 
 interface Props{
