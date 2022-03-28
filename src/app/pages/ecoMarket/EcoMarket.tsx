@@ -7,6 +7,9 @@ import {ButtonFilter} from "../../components/ui/buttons/filter/ButtonFilter";
 // @ts-ignore
 import Nike from "../../../assets/nike crocs.png";
 import React, {useState} from "react";
+import {useStores} from "../../../utils/use-stores-hook";
+import {SignIn} from "../../components/Modals/SignIn/SignIn";
+import {Promocode} from "../../components/Modals/Promocode/Promocode";
 
 interface Product{
     name: string;
@@ -73,6 +76,12 @@ export const EcoMarket = () =>{
                     {...product, checked: true}
             )
         )
+    }
+
+    const {modalStore: { setCurrentModal } } = useStores();
+
+    const openModal = () =>{
+        setCurrentModal(Promocode);
     }
 
 
@@ -170,8 +179,9 @@ export const EcoMarket = () =>{
                             price={"1000"}
                             path={Nike}
                             producer={"NIKE"}></Product>
-
                     </div>
+
+                    <button onClick={openModal}>Модалка</button>
 
                 </div>
 
