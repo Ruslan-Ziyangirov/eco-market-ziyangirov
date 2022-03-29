@@ -45,7 +45,7 @@ export const Header = observer(() => {
                     <img src={ecorus}/>
                     <nav>
                         <Link to="/" className="main">Главная</Link>
-                        <Link to="map">Пункты сбора</Link>
+                        <Link to="recyclingplaces">Пункты сбора</Link>
                         <Link to="ecomarket">ЭкоМаркет</Link>
                         <Link to="about">О сервисе</Link>
                     </nav>
