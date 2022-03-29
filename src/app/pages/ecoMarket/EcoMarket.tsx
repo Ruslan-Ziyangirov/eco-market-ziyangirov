@@ -1,7 +1,6 @@
-
+import {Header} from "../../components/header/Header";
 import "./EcoMarket.sass"
 import {Footer} from "../../components/footer/Footer";
-
 import {Product} from "../../components/productCard/Product";
 import {Checkbox} from "../../components/ui/checkboxes/Checkbox";
 import {ButtonFilter} from "../../components/ui/buttons/filter/ButtonFilter";

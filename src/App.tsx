@@ -5,6 +5,7 @@ import './App.css';
 import {Home} from "./app/pages/home/Home";
 import {EcoMarket} from "./app/pages/ecoMarket/EcoMarket";
 import {Header} from "./app/components/header/Header";
+import {RecyclingPlaces} from "./app/pages/recyclingPlaces/RecyclingPlaces";
 
 const App = () => (
     <BrowserRouter>
@@ -12,6 +13,7 @@ const App = () => (
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/ecomarket" element={<EcoMarket/>}/>
+            <Route path="/recyclingplaces" element={<RecyclingPlaces/>}/>
         </Routes>
     </BrowserRouter>
 )
