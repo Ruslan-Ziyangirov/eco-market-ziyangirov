@@ -86,7 +86,7 @@ export const SignIn = observer( () =>{
                         <div className="form-wrapper">
                             <Form>
 
-                                <Field   name="phone" placeholder="Телефон" />
+                                <Field  name="phone" placeholder="Телефон" />
 
                                 {errors.phone && touched.phone ? (
                                     <p className="error">{errors.phone}</p>
