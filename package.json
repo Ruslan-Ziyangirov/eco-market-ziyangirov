@@ -51,6 +51,8 @@
     ]
   },
   "devDependencies": {
+    "@types/leaflet": "^1.7.9",
+    "geojson-world-map": "^0.0.2",
     "sass": "^1.49.8"
   }
 }
