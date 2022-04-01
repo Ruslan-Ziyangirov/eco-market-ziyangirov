@@ -4,12 +4,19 @@ import {Footer} from "../../components/footer/Footer";
 import {Product} from "../../components/productCard/Product";
 import {Checkbox} from "../../components/ui/checkboxes/Checkbox";
 import {ButtonFilter} from "../../components/ui/buttons/filter/ButtonFilter";
-// @ts-ignore
 import Nike from "../../../assets/nike crocs.png";
+import Nike_Crocs from "../../../assets/nike_crocs.png";
+import Adidas_Crocs from "../../../assets/adidas_crocs.png";
+import hudi from "../../../assets/nike_hudi.png";
 import React, {useState} from "react";
-import {useStores} from "../../../utils/use-stores-hook";
-import {SignIn} from "../../components/Modals/SignIn/SignIn";
-import {Promocode} from "../../components/Modals/Promocode/Promocode";
+
+interface Props{
+    producer:string;
+    title:string;
+    description:string;
+    price: string;
+    img:string;
+}
 
 interface Product{
     name: string;
@@ -78,11 +85,34 @@ export const EcoMarket = () =>{
         )
     }
 
-    const {modalStore: { setCurrentModal } } = useStores();
-
-    const openModal = () =>{
-        setCurrentModal(Promocode);
-    }
+    const products: Array<Props> = [
+        {
+            producer: "NIKE",
+            title: "Nike Air Max 2022",
+            description: "Мужская обувь",
+            price: "1000",
+            img: Nike,
+        },
+        {
+            producer: "Adidas",
+            title: "Adidas Alphabounce RC",
+            description: "Мужская обувь",
+            price: "1200",
+            img: Nike_Crocs,
+        },{
+            producer: "H&M",
+            title: "Nike Air Max 2021",
+            description: "Мужское худи",
+            price: "1000",
+            img: Adidas_Crocs,
+        },{
+            producer: "NIKE",
+            title: "Nike Air Force 1 Low",
+            description: "Мужская обувь",
+            price: "2100",
+            img: hudi,
+        },
+    ];
 
 
     return(
@@ -108,7 +138,7 @@ export const EcoMarket = () =>{
                     </div>
                 </div>
                 <div className="filter-and-table">
-                    <div className="filter-wrapper">
+                    <aside className="filter-wrapper">
                         <div className="block-of-filter">
                             <h5>Пол</h5>
                             {genders.map((gender, index) =>(
@@ -153,35 +183,17 @@ export const EcoMarket = () =>{
                                     index={index} />
                             )}
                         </div>
-                    </div>
+                    </aside>
                     <div className="table-products">
-                        <Product
-                            title={"Nike Air Max 2021"}
-                            description={"Мужская обувь"}
-                            price={"1000"}
-                            path={Nike}
-                            producer={"NIKE"}></Product>
-                        <Product
-                            title={"Nike Air Max 2021"}
-                            description={"Мужская обувь"}
-                            price={"1000"}
-                            path={Nike}
-                            producer={"NIKE"}></Product>
-                        <Product
-                            title={"Nike Air Max 2021"}
-                            description={"Мужская обувь"}
-                            price={"1000"}
-                            path={Nike}
-                            producer={"NIKE"}></Product>
-                        <Product
-                            title={"Nike Air Max 2021"}
-                            description={"Мужская обувь"}
-                            price={"1000"}
-                            path={Nike}
-                            producer={"NIKE"}></Product>
+                        {products.map(item => (
+                            <Product
+                                title={item.title}
+                                description={item.description}
+                                price={item.price}
+                                path={item.img}
+                                producer={item.producer}></Product>
+                        ))}
                     </div>
-
-                    <button onClick={openModal}>Модалка</button>
 
                 </div>
 

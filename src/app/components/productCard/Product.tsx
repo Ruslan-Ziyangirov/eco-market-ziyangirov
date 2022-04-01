@@ -2,6 +2,8 @@ import "./Product.sass";
 import {FC} from "react";
 // @ts-ignore
 import balance from "../../../assets/balance.png";
+import {useStores} from "../../../utils/use-stores-hook";
+import {Promocode} from "../Modals/Promocode/Promocode";
 
 interface Props{
     producer:string;
@@ -35,12 +37,21 @@ export const Icon: FC<Icon> = ({ name, height,width}) => {
 
 
 export const Product:FC<Props> = ({producer,title, description,price, path }) =>{
+
+    const {modalStore: { setCurrentModal } } = useStores();
+
+    const onOpenModal = () =>{
+        setCurrentModal(Promocode);
+    }
+
     return(
         <div className="product">
             <div className="producer">
                 <p>{producer}</p>
             </div>
-            <img className="img-product" src={path}/>
+            <button className="img-button" onClick={onOpenModal}>
+                <img className="img-product" src={path}/>
+            </button>
 
             <h4>{title}</h4>
             <p className="description">{description}</p>
