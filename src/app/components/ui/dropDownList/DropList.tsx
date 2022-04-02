@@ -1,12 +1,18 @@
-export const DropList = () =>{
+import "./DropList.sass";
+import {FC} from "react";
+
+interface List {
+    title: string;
+    subtitle: string[];
+}
+
+export const DropList:FC<List> = ({title, subtitle}) =>{
     return (
-        <div className="drop-list-wrapper">
-            <select>
-                <option>Привет</option>
-                <option>Как дела</option>
-                <option>Нормально</option>
-                <option>Нереально</option>
+            <select className="drop-down-list">
+                    <option disabled selected>{title}</option>
+                    {subtitle.map(item => (
+                        <option>{item}</option>
+                    ))}
             </select>
-        </div>
     )
 }

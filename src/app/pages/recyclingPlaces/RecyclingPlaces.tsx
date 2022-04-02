@@ -5,6 +5,7 @@ import recyclingPlaceImg from "../../../assets/recycling-place.png"
 import {Map} from "../../components/map/Map"
 import {MapContainer, TileLayer, Marker, Popup, ZoomControl} from 'react-leaflet'
 import {LargeInput} from "../../components/ui/inputs/large/LargeInput";
+import {DropList} from "../../components/ui/dropDownList/DropList";
 
 export const RecyclingPlaces = () =>{
     return(
@@ -12,7 +13,12 @@ export const RecyclingPlaces = () =>{
 
 
             <div className="menu-on-map">
-                <LargeInput/>
+                <div className="input-and-select">
+                    <LargeInput/>
+                    <DropList title="Выбрано 3 магазина" subtitle={["H&M","P&B","H&M","Adidas","Nike"]}/>
+                    <DropList title={"Материалы"} subtitle={["Дерево","Переработанный пластик","Еще что-то"]}/>
+                </div>
+
             </div>
 
             <div className="cards-wrapper">
