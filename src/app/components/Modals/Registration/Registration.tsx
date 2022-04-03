@@ -4,9 +4,11 @@ import {useStores} from "../../../../utils/use-stores-hook";
 import {SignInWithCode} from "../SignInWithCode/SignInWithCode";
 import {SignInForPartner} from "../SignInForPartner/SignInForPartner";
 import {Modal} from "../Modal";
-import {Field, Form, Formik} from "formik";
+import {Field, Form, Formik, FormikValues, useFormik} from "formik";
 import {signInScheme} from "../../../schemas/SchemForValidate";
 import {Button} from "../../ui/buttons/large/Button";
+import axios from "axios";
+import * as Yup from "yup";
 
 interface Props{
     name:string,
@@ -32,74 +34,112 @@ export const Icon: FC<Props> = ({ name, height,width}) => {
 
 
 
-export const Registration = observer( () =>{
-    const { modalStore: {clearCurrentModal, setCurrentModal} } = useStores();
+export const Registration = observer( () => {
+    const {modalStore: {clearCurrentModal, setCurrentModal}} = useStores();
 
-    const onSignInWithCode = () =>{
+
+    const onSignInWithCode = () => {
         clearCurrentModal();
         setCurrentModal(SignInWithCode);
     }
-
-    const onButtonClick = () => {
-        console.log("кнопка жмякается");
-    };
 
     const onSignInForPartner = () => {
         clearCurrentModal();
         setCurrentModal(SignInForPartner);
     }
 
+    const schema = Yup.object().shape({
+        password: Yup.string()
+            .required("Пожалуйста,введите пароль")
+            .matches(/^(?=.*[0-9])(?=.*[a-z]).{3,10}$/g,
+                "Пароль должен содержать строчные латинские  буквы, а также цифру")
+            .min(5, "Минимальная длинна пароля - 5 символа"),
+        email: Yup.string()
+            .required("Пожалуйста,введите почту")
+            .email("Введите действительную почту"),
+        username: Yup.string()
+            .required("Пожалуйста,введите наименование организации")
+    });
+
+    const onSignUp = (values: FormikValues) => {
+        axios.post("account", {
+            username: values.username,
+            email: values.email,
+            password: values.password
+        })
+            .then((res)=>{
+                console.log(res.data);
+                clearCurrentModal();
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+    };
+
+
+
 
     return (
         <Modal onClose={clearCurrentModal}>
-
+            
             <Formik initialValues={{
-                partners: "",
-                email: "",
-                password: ""
+                username: '',
+                password: '',
+                email: ''
             }}
-                    validationSchema={signInScheme}
-                    onSubmit={values => {
-                        alert(values);
+                    onSubmit={(values) => {
+                        console.log("АЛЛООООО РАБОТАЙ!!!!!")
+                        onSignUp(values);
                     }}
+                    validationSchema={schema}
             >
-                {({errors,touched}) =>(
+                {({errors, touched, handleSubmit,values
+                  }) => (
                     <div className="elements-wrapper">
                         <div className="title-btn-wrapper">
-                            <h3>Вход</h3>
+                            <h3>Регистрация</h3>
                             <button className="btn-close" onClick={clearCurrentModal}>
                                 <Icon name="close-btn" height="20" width="20"/>
                             </button>
                         </div>
                         <div className="form-wrapper">
-                            <Form>
+                            <form onSubmit={handleSubmit}  >
 
-                                <Field name="partners" placeholder="Наименование организации"/>
-                                {errors.partners && touched.partners ? (
-                                    <p className="error">{errors.partners}</p>
+                                <Field name="username"
+                                       placeholder="Имя"
+
+                                />
+                                {errors.username && touched.username ? (
+                                    <p className="error">{errors.username}</p>
                                 ) : null}
 
-                                <Field   name="email" placeholder="Email" />
+                                <Field   name="email"
+                                         placeholder="Email"
+                                />
 
                                 {errors.email && touched.email ? (
                                     <p className="error">{errors.email}</p>
                                 ) : null}
 
-                                <Field    name="password" placeholder="Пароль"  />
+                                <Field    name="password"
+                                          placeholder="Пароль"
+                                />
 
                                 {errors.password && touched.password ? (
                                     <p className="error">{errors.password}</p>
                                 ) : null}
 
-                            </Form>
+                                <Button
+                                    title="Зарегистрироваться"
+                                    color="#FFF"
+                                    background="#07C88E"
+                                    type="submit"
+                                    onClick={()=>{
+                                        console.log(values.email)
+                                    }}
+                                />
+                            </form>
 
-                            <Button
-                                onClick={onButtonClick}
-                                title="Получить код"
-                                color="#FFF"
-                                background="#07C88E"
-                                type={"submit"}
-                            />
                         </div>
                         <div className="link-wrapper">
                             <button className="btn-as-link" onClick={onSignInWithCode}>
@@ -114,6 +154,20 @@ export const Registration = observer( () =>{
                             type={"button"}/>
                     </div>
                 )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </Formik>
 
         </Modal>
