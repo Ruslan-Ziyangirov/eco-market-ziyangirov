@@ -5,8 +5,8 @@ interface Props{
     title: string;
     color: string;
     background: string;
-    onClick: () => void;
-    type:any
+    onClick?: any;
+    type?:any
 }
 
 export const Button:FC<Props> = ({title,color,background, onClick, type}) =>{

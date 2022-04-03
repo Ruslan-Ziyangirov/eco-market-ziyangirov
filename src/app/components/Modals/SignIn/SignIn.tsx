@@ -7,11 +7,12 @@ import {Link} from "react-router-dom";
 import "./SignIn.sass"
 import {Button} from "../../ui/buttons/large/Button";
 import * as Yup from "yup";
-import {Field, Form, Formik , useFormik} from "formik";
+import {Field, Form, Formik, FormikValues, useFormik} from "formik";
 import {SignInWithCode} from "../SignInWithCode/SignInWithCode";
 import {signInScheme} from "../../../schemas/SchemForValidate";
 import {SignInForPartner} from "../SignInForPartner/SignInForPartner";
 import {Registration} from "../Registration/Registration";
+import axios from "axios";
 
 
 
@@ -42,15 +43,21 @@ export const Icon: FC<Props> = ({ name, height,width}) => {
 export const SignIn = observer( () =>{
     const { modalStore: {clearCurrentModal, setCurrentModal} } = useStores();
 
+    const schemaIn = Yup.object().shape({
+        password: Yup.string()
+            .required("Пожалуйста,введите пароль")
+            .matches(/^(?=.*[0-9])(?=.*[a-z]).{3,10}$/g,
+                "Пароль должен содержать строчные латинские  буквы, а также цифру")
+            .min(5, "Минимальная длинна пароля - 5 символа"),
+        email: Yup.string()
+            .required("Пожалуйста,введите почту")
+            .email("Введите действительную почту"),
+    });
 
     const onSignInWithCode = () =>{
         clearCurrentModal();
         setCurrentModal(SignInWithCode);
     }
-
-    const onButtonClick = () => {
-        console.log("кнопка жмякается");
-    };
 
     const onRegistration = () => {
         clearCurrentModal();
@@ -62,20 +69,36 @@ export const SignIn = observer( () =>{
         setCurrentModal(SignInForPartner);
     }
 
+    const onSignIn = (values: FormikValues) => {
+        axios.post("login", {
+            login: values.email,
+            password: values.password
+        })
+            .then((res) => {
+                console.log(res.data);
+                clearCurrentModal();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    };
+
 
     return (
         <Modal onClose={clearCurrentModal}>
 
             <Formik initialValues={{
-                phone: "",
+                email: "",
                 password: ""
             }}
-                    validationSchema={signInScheme}
-                    onSubmit={values => {
-                        alert(values);
+                    onSubmit={(values) => {
+                        console.log("УРА АВТОРИЗАЦИЯ!!!!!!")
+                        onSignIn(values);
                     }}
+                    validationSchema={schemaIn}
+
             >
-                {({errors,touched}) =>(
+                {({errors,touched, handleSubmit, values}) =>(
                     <div className="elements-wrapper">
                         <div className="title-btn-wrapper">
                             <h3>Вход</h3>
@@ -84,29 +107,34 @@ export const SignIn = observer( () =>{
                             </button>
                         </div>
                         <div className="form-wrapper">
-                            <Form>
+                            <form onSubmit={handleSubmit}>
 
-                                <Field  name="phone" placeholder="Телефон" />
+                                <Field  name="email"
+                                        placeholder="Email" />
 
-                                {errors.phone && touched.phone ? (
-                                    <p className="error">{errors.phone}</p>
+                                {errors.email && touched.email ? (
+                                    <p className="error">{errors.email}</p>
                                 ) : null}
 
-                                <Field    name="password" placeholder="Пароль"  />
+                                <Field    name="password"
+                                          placeholder="Пароль"  />
 
                                 {errors.password && touched.password ? (
                                     <p className="error">{errors.password}</p>
                                 ) : null}
 
-                            </Form>
-
-                            <Button
-                                onClick={onButtonClick}
-                                title="Войти"
-                                color="#FFF"
-                                background="#07C88E"
-                                type={"submit"}
+                                <Button
+                                    title="Войти"
+                                    color="#FFF"
+                                    background="#07C88E"
+                                    type="submit"
+                                    onClick={()=>{
+                                        console.log(values.email)
+                                    }}
                                 />
+
+                            </form>
+
                         </div>
                         <div className="link-wrapper">
                             <button className="btn-as-link" onClick={onSignInWithCode}>
