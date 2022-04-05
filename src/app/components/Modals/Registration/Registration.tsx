@@ -57,6 +57,10 @@ export const Registration = observer( () => {
         email: Yup.string()
             .required("Пожалуйста,введите почту")
             .email("Введите действительную почту"),
+        phone: Yup.string()
+            .required("Пожалуйста,введите номер телефона")
+            .matches(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/g,
+                "Неверный формат номера"),
         username: Yup.string()
             .required("Пожалуйста,введите наименование организации")
     });
@@ -65,6 +69,7 @@ export const Registration = observer( () => {
         axios.post("account", {
             username: values.username,
             email: values.email,
+            phone_number: values.phone,
             password: values.password
         })
             .then((res)=>{
@@ -84,6 +89,7 @@ export const Registration = observer( () => {
             
             <Formik initialValues={{
                 username: '',
+                phone: '',
                 password: '',
                 email: ''
             }}
@@ -119,6 +125,14 @@ export const Registration = observer( () => {
 
                                 {errors.email && touched.email ? (
                                     <p className="error">{errors.email}</p>
+                                ) : null}
+
+                                <Field   name="phone"
+                                         placeholder="Телефон"
+                                />
+
+                                {errors.phone && touched.phone ? (
+                                    <p className="error">{errors.phone}</p>
                                 ) : null}
 
                                 <Field    name="password"

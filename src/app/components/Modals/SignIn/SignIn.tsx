@@ -49,9 +49,10 @@ export const SignIn = observer( () =>{
             .matches(/^(?=.*[0-9])(?=.*[a-z]).{3,10}$/g,
                 "Пароль должен содержать строчные латинские  буквы, а также цифру")
             .min(5, "Минимальная длинна пароля - 5 символа"),
-        email: Yup.string()
-            .required("Пожалуйста,введите почту")
-            .email("Введите действительную почту"),
+        phone: Yup.string()
+            .required("Пожалуйста,введите номер телефона")
+            .matches(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/g,
+                "Неверный формат номера"),
     });
 
     const onSignInWithCode = () =>{
@@ -71,7 +72,7 @@ export const SignIn = observer( () =>{
 
     const onSignIn = (values: FormikValues) => {
         axios.post("login", {
-            login: values.email,
+            login: values.phone,
             password: values.password
         })
             .then((res) => {
@@ -109,8 +110,8 @@ export const SignIn = observer( () =>{
                         <div className="form-wrapper">
                             <form onSubmit={handleSubmit}>
 
-                                <Field  name="email"
-                                        placeholder="Email" />
+                                <Field  name="phone"
+                                        placeholder="Телефон" />
 
                                 {errors.email && touched.email ? (
                                     <p className="error">{errors.email}</p>
