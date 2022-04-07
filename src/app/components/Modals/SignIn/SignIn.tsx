@@ -93,7 +93,6 @@ export const SignIn = observer( () =>{
                 password: ""
             }}
                     onSubmit={(values) => {
-                        console.log("УРА АВТОРИЗАЦИЯ!!!!!!")
                         onSignIn(values);
                     }}
                     validationSchema={schemaIn}
