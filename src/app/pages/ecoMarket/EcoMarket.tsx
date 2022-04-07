@@ -10,11 +10,12 @@ import Adidas_Crocs from "../../../assets/adidas_crocs.png";
 import hudi from "../../../assets/nike_hudi.png";
 import React, {useEffect, useState} from "react";
 import {SkeletonEcoMarketPage} from "../../components/animation/skeletonEcoMarketPage/SkeletonEcoMarketPage";
+import axios from "axios";
 
 interface Props{
     producer:string;
     title:string;
-    description:string;
+    gender:string;
     price: string;
     img:string;
 }
@@ -50,6 +51,7 @@ const allSortings: Product[] = [
     { name: "По новизне", checked: false },
 ]
 
+
 export const EcoMarket = () =>{
 
     const [genders, setGenders] = useState(allGenders);
@@ -59,6 +61,23 @@ export const EcoMarket = () =>{
     const [allProductsTypes, setAllProductsTypes] = useState(false);
     const [allProductsBrand, setAllProductsBrand] = useState(false);
 
+    const getProducts = () => {
+        axios.get("market", {
+            params: {
+                page_number: 1,
+                page_size: 20,
+                sexes: ["MAN", "WOMAN"],
+                item_categories: ["SHOES", "ACCESSORIZE"],
+                shop_ids: ["ec4e2c1d-a495-4010-bbf9-67fc99c8be28"]
+            }
+        })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
+
+    const onButtonClick = () => {
+        getProducts();
+    };
 
     const checkStatusProducts = (index: number, setProducts: any, products: Product[]) => {
         setProducts(
@@ -90,26 +109,26 @@ export const EcoMarket = () =>{
         {
             producer: "NIKE",
             title: "Nike Air Max 2022",
-            description: "Мужская обувь",
+            gender: "Мужская обувь",
             price: "1000",
             img: Nike,
         },
         {
             producer: "Adidas",
             title: "Adidas Alphabounce RC",
-            description: "Мужская обувь",
+            gender: "Мужская обувь",
             price: "1200",
             img: Nike_Crocs,
         },{
             producer: "H&M",
             title: "Nike Air Max 2021",
-            description: "Мужское худи",
+            gender: "Мужское худи",
             price: "1000",
             img: Adidas_Crocs,
         },{
             producer: "NIKE",
             title: "Nike Air Force 1 Low",
-            description: "Мужская обувь",
+            gender: "Мужская обувь",
             price: "2100",
             img: hudi,
         },
@@ -199,8 +218,9 @@ export const EcoMarket = () =>{
                         <div className="table-products">
                             {products.map(item => (
                                 <Product
+                                    key={item.title}
                                     title={item.title}
-                                    description={item.description}
+                                    gender={item.gender}
                                     price={item.price}
                                     path={item.img}
                                     producer={item.producer}></Product>
