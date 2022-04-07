@@ -7,9 +7,10 @@ import {Promocode} from "../Modals/Promocode/Promocode";
 import {useSpring} from "react-spring";
 
 interface Props{
+    key:string;
     producer:string;
     title:string;
-    description:string;
+    gender:string;
     price: string;
     path:string;
 }
@@ -37,7 +38,7 @@ export const Icon: FC<Icon> = ({ name, height,width}) => {
 }
 
 
-export const Product:FC<Props> = ({producer,title, description,price, path }) =>{
+export const Product:FC<Props> = ({producer,title, gender,price, path }) =>{
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -73,7 +74,7 @@ export const Product:FC<Props> = ({producer,title, description,price, path }) =>
             </button>
 
             <h4>{title}</h4>
-            <p className="description">{description}</p>
+            <p className="gender">{gender}</p>
 
             <div className="balance">
                 <img className="logo-balance" src={balance}/>
