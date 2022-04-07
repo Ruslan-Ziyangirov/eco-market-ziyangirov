@@ -8,7 +8,8 @@ import Nike from "../../../assets/nike crocs.png";
 import Nike_Crocs from "../../../assets/nike_crocs.png";
 import Adidas_Crocs from "../../../assets/adidas_crocs.png";
 import hudi from "../../../assets/nike_hudi.png";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import {SkeletonEcoMarketPage} from "../../components/animation/skeletonEcoMarketPage/SkeletonEcoMarketPage";
 
 interface Props{
     producer:string;
@@ -114,90 +115,103 @@ export const EcoMarket = () =>{
         },
     ];
 
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
+        const timing = setTimeout(() => {
+            setLoading(false);
+        }, 1800);
+        return () => clearTimeout(timing);
+    }, []);
 
     return(
         <div className="ecomarket-page">
-            <div className="body-for-ecomarket-page">
+            {loading ? <SkeletonEcoMarketPage/> :
+                <div className="body-for-ecomarket-page">
 
-                <div className="header-and-button-filter">
-                    <h1>ЭкоМаркет</h1>
 
-                    <div>
-                        {sortings.map((sorting,index)=>(
-                                <ButtonFilter
-                                    title={sorting.name}
-                                    type={"button"}
-                                    isActive={sorting.checked}
-                                    onClick={() =>{
-                                        handleClickSort(index)
-                                        console.log("Кнопка жмякает и фильтрует")
-                                    }}
-                                />
-                            )
-                        )}
-                    </div>
-                </div>
-                <div className="filter-and-table">
-                    <aside className="filter-wrapper">
-                        <div className="block-of-filter">
-                            <h5>Пол</h5>
-                            {genders.map((gender, index) =>(
-                                <Checkbox
-                                    isChecked={gender.checked}
-                                    checkHandler={() => checkStatusProducts(index, setGenders, genders)}
-                                    title={gender.name}
-                                    index={index}
-                                />
+                    <div className="header-and-button-filter">
+                        <h1>ЭкоМаркет</h1>
+
+                        <div>
+                            {sortings.map((sorting,index)=>(
+                                    <ButtonFilter
+                                        title={sorting.name}
+                                        type={"button"}
+                                        isActive={sorting.checked}
+                                        onClick={() =>{
+                                            handleClickSort(index)
+                                            console.log("Кнопка жмякает и фильтрует")
+                                        }}
+                                    />
                                 )
                             )}
                         </div>
+                    </div>
+                    <div className="filter-and-table">
+                        <aside className="filter-wrapper">
+                            <div className="block-of-filter">
+                                <h5>Пол</h5>
+                                {genders.map((gender, index) =>(
+                                        <Checkbox
+                                            isChecked={gender.checked}
+                                            checkHandler={() => checkStatusProducts(index, setGenders, genders)}
+                                            title={gender.name}
+                                            index={index}
+                                        />
+                                    )
+                                )}
+                            </div>
 
-                        <div className="block-of-filter">
-                            <h5>Тип товара</h5>
-                            <Checkbox
-                                isChecked={allProductsTypes}
-                                checkHandler={() => checkStatucAllProducts(allProductsTypes, setAllProductsTypes, setTypes, types)}
-                                title={"Выбрать все"}
-                            />
-                            {types.map((type, index)=>
+                            <div className="block-of-filter">
+                                <h5>Тип товара</h5>
                                 <Checkbox
-                                    isChecked={type.checked}
-                                    checkHandler={() => checkStatusProducts(index, setTypes, types)}
-                                    title={type.name}
-                                    index={index} />
-                            )}
+                                    isChecked={allProductsTypes}
+                                    checkHandler={() => checkStatucAllProducts(allProductsTypes, setAllProductsTypes, setTypes, types)}
+                                    title={"Выбрать все"}
+                                />
+                                {types.map((type, index)=>
+                                    <Checkbox
+                                        isChecked={type.checked}
+                                        checkHandler={() => checkStatusProducts(index, setTypes, types)}
+                                        title={type.name}
+                                        index={index} />
+                                )}
+                            </div>
+
+                            <div className="block-of-filter">
+                                <h5>Бренд</h5>
+                                <Checkbox
+                                    isChecked={allProductsBrand}
+                                    checkHandler={() => checkStatucAllProducts(allProductsBrand, setAllProductsBrand, setBrands, brands)}
+                                    title={"Выбрать все"}
+                                />
+                                {brands.map((brand, index)=>
+                                    <Checkbox
+                                        isChecked={brand.checked}
+                                        checkHandler={() => checkStatusProducts(index, setBrands, brands)}
+                                        title={brand.name}
+                                        index={index} />
+                                )}
+                            </div>
+                        </aside>
+                        <div className="table-products">
+                            {products.map(item => (
+                                <Product
+                                    title={item.title}
+                                    description={item.description}
+                                    price={item.price}
+                                    path={item.img}
+                                    producer={item.producer}></Product>
+                            ))}
                         </div>
 
-                        <div className="block-of-filter">
-                            <h5>Бренд</h5>
-                            <Checkbox
-                                isChecked={allProductsBrand}
-                                checkHandler={() => checkStatucAllProducts(allProductsBrand, setAllProductsBrand, setBrands, brands)}
-                                title={"Выбрать все"}
-                            />
-                            {brands.map((brand, index)=>
-                                <Checkbox
-                                    isChecked={brand.checked}
-                                    checkHandler={() => checkStatusProducts(index, setBrands, brands)}
-                                    title={brand.name}
-                                    index={index} />
-                            )}
-                        </div>
-                    </aside>
-                    <div className="table-products">
-                        {products.map(item => (
-                            <Product
-                                title={item.title}
-                                description={item.description}
-                                price={item.price}
-                                path={item.img}
-                                producer={item.producer}></Product>
-                        ))}
                     </div>
 
                 </div>
+            }
 
-            </div>
             <Footer/>
         </div>
     )

@@ -94,7 +94,6 @@ export const Registration = observer( () => {
                 email: ''
             }}
                     onSubmit={(values) => {
-                        console.log("АЛЛООООО РАБОТАЙ!!!!!")
                         onSignUp(values);
                     }}
                     validationSchema={schema}
