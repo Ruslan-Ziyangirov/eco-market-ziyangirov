@@ -51,7 +51,7 @@ export const Slider = () => {
                 loop={true}
                 pagination
                 speed={500}
-                spaceBetween={300}
+                spaceBetween={0}
                 slidesPerView={1}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
@@ -62,7 +62,7 @@ export const Slider = () => {
                         <div className="slaid-information">
                             <h2>Сделаем мир чище</h2>
                             <p>
-                                Сдай макулатуру или старую одежду и получи скидку<br/>
+                                Сдай макулатуру или старую одежду и получи скидку
                                 на покупку товаров из переработанных материалов
                             </p>
                             <button className="btn-slide">Условия сервиса</button>

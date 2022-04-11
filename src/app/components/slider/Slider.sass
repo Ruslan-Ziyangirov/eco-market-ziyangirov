@@ -20,13 +20,22 @@
   border-radius: 24px
   background: url("../../../assets/slide-first.png")
 
+  p
+    width: 430px
+
 .background-second
   border-radius: 24px
   background: url("../../../assets/slide-second.png")
 
+  p
+    width: 551px
+
 .background-third
   border-radius: 24px
   background: url("../../../assets/slide-third.png")
+
+  p
+    width: 545px
 
 h2
   margin: 0
@@ -100,6 +109,87 @@ p
 
 
 
+@media screen and (max-width: 375px)
+  .slider
+    width: 100%
+    height: 425px
+
+  .swiper
+    height: 425px
+    background: #ffffff
+    border-radius: 0px
+    margin-top: 0px
+
+
+
+  .slaid-information
+    width: 343px
+    margin: 0 auto
+
+  .background-first
+    border-radius: 0px
+    background: url("../../../assets/bg-first-slaid-mb.png")
+    height: 425px
+    p
+      width: 343px
+
+  .background-second
+    border-radius: 0px
+    background: url("../../../assets/slide-second.png")
+
+  .background-third
+    border-radius: 0px
+    background: url("../../../assets/slide-third.png")
+
+  h2
+    margin: 0
+    font-size: 24px
+    line-height: 28px
+    padding-top: 24px
+    padding-bottom: 16px
+    font-weight: 600
+    color: #000B26
+
+  p
+    margin: 0px
+    font-weight: 400
+    font-size: 16px
+    line-height: 24px
+    padding-bottom: 24px
+
+
+  .btn-slide
+    color: white
+    cursor: pointer
+    font-weight: 500
+    font-size: 16px
+    background: #07C88E
+    border-radius: 8px
+    width: 100%
+    height: 48px
+    border: 0px
+    margin: 0 auto 56px
+
+  .btn-slide:hover
+    background: #05d295
+    box-shadow: 0px 20px 40px rgba(7, 200, 142, 0.25)
+
+  .swiper-button-prev-new
+    display: none
+
+  .swiper-button-prev-new::after
+    display: none
+
+
+  .swiper-button-next-new
+    display: none
+
+  .swiper-button-next-new::after
+    display: none
+
+
+    .swiper-button-next-u, .swiper-button-prev-u
+      display: none
 
 
 

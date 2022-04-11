@@ -7,7 +7,6 @@ import {Promocode} from "../Modals/Promocode/Promocode";
 import {useSpring} from "react-spring";
 
 interface Props{
-    key:string;
     producer:string;
     title:string;
     gender:string;
@@ -74,7 +73,7 @@ export const Product:FC<Props> = ({producer,title, gender,price, path }) =>{
             </button>
 
             <h4>{title}</h4>
-            <p className="gender">{gender}</p>
+            <p className="description">{gender}</p>
 
             <div className="balance">
                 <img className="logo-balance" src={balance}/>
