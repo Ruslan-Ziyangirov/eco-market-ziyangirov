@@ -65,10 +65,10 @@ export const EcoMarket = () =>{
         axios.get("market", {
             params: {
                 page_number: 1,
-                page_size: 20,
-                sexes: ["MAN", "WOMAN"],
-                item_categories: ["SHOES", "ACCESSORIZE"],
-                shop_ids: ["ec4e2c1d-a495-4010-bbf9-67fc99c8be28"]
+                page_size: 10,
+                sexes: `["MAN", "WOMAN"]`,
+                item_categories: `["SHOES", "ACCESSORIZE"]`,
+                shop_ids: `["ec4e2c1d-a495-4010-bbf9-67fc99c8be28"]`
             }
         })
             .then(res => console.log(res))
@@ -161,7 +161,7 @@ export const EcoMarket = () =>{
                                         isActive={sorting.checked}
                                         onClick={() =>{
                                             handleClickSort(index)
-                                            console.log("Кнопка жмякает и фильтрует")
+                                            onButtonClick();
                                         }}
                                     />
                                 )
