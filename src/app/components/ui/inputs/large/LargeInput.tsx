@@ -7,6 +7,10 @@ interface Props{
     width:number|string;
 }
 
+interface Input{
+    onClick?: any;
+}
+
 
 export const Icon: FC<Props> = ({ name, height,width}) => {
     return (
@@ -24,9 +28,9 @@ export const Icon: FC<Props> = ({ name, height,width}) => {
 }
 
 
-export const LargeInput = () =>{
+export const LargeInput:FC<Input> = ({onClick}) =>{
     return(
-        <div className="input-wrapper">
+        <div className="input-wrapper" onClick={onClick}>
             <div className="icon">
                 <Icon name="search" height={"16"} width={"16"}/>
             </div>

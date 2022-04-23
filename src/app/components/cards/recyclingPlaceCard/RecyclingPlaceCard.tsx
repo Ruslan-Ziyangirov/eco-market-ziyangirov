@@ -2,9 +2,15 @@ import "./RecyclingPlaceCard.sass"
 import {FC} from "react"
 
 interface Props{
-    image: string
-    address: string
-    description: string
+    id?: number,
+    image: any,
+    address: string,
+    fullAddress?: string
+    phone?: string,
+    description: string,
+    timetable?: string[],
+    shop?: string,
+    items?: string[]
 }
 
 export const RecyclingPlaceCard:FC<Props> = ({image, address, description}) => {

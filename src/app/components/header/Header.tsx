@@ -1,11 +1,13 @@
 import './Header.sass';
-import {FC} from "react";
+import {FC, useState} from "react";
 import {Link} from "react-router-dom";
 // @ts-ignore
 import ecorus from "../../../svg-icons/ecorus-logo.svg";
 import {observer} from "mobx-react";
 import {useStores} from "../../../utils/use-stores-hook";
 import {SignIn} from "../Modals/SignIn/SignIn";
+import {MenuBurger} from "../Modals/MenuBurger/MenuBurger";
+import {Home} from "../../pages/home/Home";
 
 interface Props{
     name:string,
@@ -15,6 +17,8 @@ interface Props{
 
 
 export const Icon: FC<Props> = ({ name, height,width}) => {
+
+
     return (
         <svg
             version='1.1'
@@ -34,15 +38,28 @@ export const Header = observer(() => {
 
     const {modalStore: { setCurrentModal } } = useStores();
 
+    const [open, setOpen] = useState<boolean>(false);
+
+    const onMenuOpen = () => {
+        console.log("menu click");
+        setOpen(true);
+    };
+
     const openModal = () =>{
         setCurrentModal(SignIn);
     }
+
+    const onMenuBurger = () => {
+        setCurrentModal(MenuBurger);
+    };
 
     return(
         <header>
             <div className="header">
                 <div className="navigation">
-                    <img src={ecorus}/>
+                    <Link to="/">
+                        <img src={ecorus}/>
+                    </Link>
                     <nav>
                         <Link to="/" className="main">Главная</Link>
                         <Link to="recyclingplaces">Пункты сбора</Link>
@@ -60,10 +77,15 @@ export const Header = observer(() => {
                         <Icon name="sign-in" height="20" width="20"/>
                         <span>Войти</span>
                     </button>
+                    <button className="menu-burger-btn" onClick={onMenuBurger}>
+                        <Icon name="menu-burger" height="20" width="20"/>
+                    </button>
                 </div>
             </div>
             {/*<img src={greenRectangle} className="green-rectangle"/>*/}
-
+            {open && <MenuBurger/>}
         </header>
+
+
     )
 });

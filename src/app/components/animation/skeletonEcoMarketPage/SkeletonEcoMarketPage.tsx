@@ -1,5 +1,5 @@
 import Skeleton from "react-loading-skeleton";
-import {ButtonFilter} from "../../ui/buttons/filter/ButtonFilter";
+import {ButtonFilters} from "../../ui/buttons/filters/ButtonFilters";
 import {Checkbox} from "../../ui/checkboxes/Checkbox";
 import React from "react";
 import balance from "../../../../assets/balance.png";

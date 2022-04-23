@@ -2,7 +2,7 @@ import "./index.sass"
 import {FC, ReactNode} from "react";
 
 interface Props{
-    onClose: () => void;
+    onClose?: () => void;
 }
 
 export const Modal: FC<Props> = ({ onClose, children}) =>{

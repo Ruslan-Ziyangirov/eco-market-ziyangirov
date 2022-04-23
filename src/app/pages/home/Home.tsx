@@ -1,6 +1,6 @@
 import {Header} from "../../components/header/Header";
 import {Slider} from "../../components/slider/Slider";
-import {Cards} from "../../components/cards/Cards";
+import {Cards} from "../../components/cards/card/Cards";
 import {Footer} from "../../components/footer/Footer";
 import {observer} from "mobx-react";
 import {useEffect, useState} from "react";

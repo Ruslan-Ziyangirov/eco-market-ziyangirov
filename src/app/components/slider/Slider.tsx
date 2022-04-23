@@ -50,8 +50,9 @@ export const Slider = () => {
                 }
                 loop={true}
                 pagination
+                autoplay={true}
                 speed={500}
-                spaceBetween={300}
+                spaceBetween={200}
                 slidesPerView={1}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
@@ -62,7 +63,7 @@ export const Slider = () => {
                         <div className="slaid-information">
                             <h2>Сделаем мир чище</h2>
                             <p>
-                                Сдай макулатуру или старую одежду и получи скидку<br/>
+                                Сдай макулатуру или старую одежду и получи скидку
                                 на покупку товаров из переработанных материалов
                             </p>
                             <button className="btn-slide">Условия сервиса</button>
@@ -74,7 +75,7 @@ export const Slider = () => {
                         <div className="slaid-information">
                             <h2>А вы знали...</h2>
                             <p>
-                                Что среднее время разложения пластмассовых изделий колеблется<br/>
+                                Что среднее время разложения пластмассовых изделий колеблется
                                 от 400 до 700 лет,  а полиэтиленовых пакетов — от 100 до 200 лет?
                             </p>
                             <button className="btn-slide">Узнать больше</button>
@@ -86,7 +87,7 @@ export const Slider = () => {
                         <div className="slaid-information">
                             <h2>Что с масками?</h2>
                             <p>
-                                Медицинские маски не обязательно должны становиться отходами.<br/>
+                                Медицинские маски не обязательно должны становиться отходами.
                                 Их тоже можно сдать на переработку.
                             </p>
                             <button className="btn-slide">Пункты сбора масок</button>
