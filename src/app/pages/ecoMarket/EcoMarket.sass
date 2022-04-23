@@ -10,7 +10,8 @@ p
   color: rgba(0, 11, 38, 0.8)
 
 .body-for-ecomarket-page
-  width: 1200px
+  max-width: 1200px
+  width: 100%
   margin: 0 auto
 
 .header-and-button-filter
@@ -24,6 +25,7 @@ p
   flex-wrap: wrap
   justify-content: space-between
   max-width: 870px
+  width: 100%
 
 .filter-and-table
   display: flex
@@ -50,3 +52,108 @@ h5
 
 .block-of-filter:last-child
   margin-bottom: 24px
+
+@media screen and (max-width: 1250px)
+  .body-for-ecomarket-page
+    max-width: 1100px
+    width: 100%
+
+@media screen and (max-width: 1100px)
+  .body-for-ecomarket-page
+    max-width: 850px
+    width: 100%
+
+
+@media screen and (max-width: 850px)
+  .body-for-ecomarket-page
+    max-width: 750px
+    width: 100%
+
+  .table-products
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+    max-width: 570px
+    width: 100%
+
+  .filter-wrapper
+    width: 235px
+    border: 2px solid rgba(62, 80, 114, 0.16)
+    border-radius: 16px
+    margin-right: 32px
+    position: sticky
+    height: 620px
+
+  .header-and-button-filter
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+
+    h1
+      margin-right: 24px
+
+  .filter-wrapper
+    display: block
+    margin-right: 24px
+
+
+  .block-of-filter
+    margin-top: 24px
+    margin-left: 16px
+    margin-right: 16px
+
+  .block-of-filter:last-child
+    margin-bottom: 24px
+
+
+
+@media screen and (max-width: 375px)
+  p
+    font-weight: 400
+    font-size: 16px
+    line-height: 24px
+    color: rgba(0, 11, 38, 0.8)
+
+  .body-for-ecomarket-page
+    width: 343px
+    margin: 0 auto
+
+    h1
+      font-size: 40px
+
+  .button-filters
+    display: none
+
+  .header-and-button-filter
+    display: block
+
+
+  .table-products
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+    width: 343px
+
+  .filter-and-table
+    display: flex
+
+  h5
+    font-weight: 500
+    font-size: 16px
+    color: rgba(0, 11, 38, 0.8)
+    margin: 0px
+    margin-bottom: 16px
+
+  .filter-wrapper
+    display: none
+
+
+  .block-of-filter
+    margin-top: 24px
+    margin-left: 24px
+
+  .block-of-filter:last-child
+    margin-bottom: 24px

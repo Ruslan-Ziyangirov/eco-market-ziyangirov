@@ -29,18 +29,119 @@
   flex-wrap: wrap
   margin-top: 112px
 
+.btn-card-recycling
+  background: transparent
+  border: 0px
+  padding: 0px
+  margin: 0px
+  cursor: pointer
+
+.btn-card-recycling:first-child
+  margin-top: 12px
+
 .cards-wrapper
   max-width: 1200px
   margin: 0 auto
 
 .menu-on-map
-  width: 1200px
+  max-width: 1200px
+  width: 100%
   margin: 0 auto
 
   .input-and-select
     margin-top: 32px
-    z-index: 20
+    z-index: 0
     position: absolute
     display: flex
 
+    .filter-btn
+      display: none
 
+@media screen and (max-width: 1250px)
+  .cards-wrapper
+    max-width: 1100px
+    width: 100%
+
+  .menu-on-map
+    max-width: 1100px
+    width: 100%
+
+
+@media screen and (max-width: 1100px)
+  .cards-wrapper
+    max-width: 850px
+    width: 100%
+
+  .menu-on-map
+    max-width: 850px
+    width: 100%
+
+
+@media screen and (max-width: 850px)
+  .cards-wrapper
+    max-width: 750px
+    width: 100%
+
+  .menu-on-map
+    max-width: 750px
+    width: 100%
+
+
+@media screen and (max-width: 375px)
+
+  .recycling-place-cards-wrapper
+    position: relative
+    width: 100%
+
+  .parent_content
+
+
+  .children_content
+    position: absolute
+    width: 100%
+    top: 0
+    left: 0
+    z-index: 2
+
+
+  .mapContainer
+    height: 100vh
+    width: 100%
+    display: flex
+    flex-direction: column-reverse
+    position: absolute
+    z-index: -10
+
+  .cards-on-map
+    position: absolute
+    z-index: 20
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    margin-top: 112px
+
+  .cards-wrapper
+    max-width: 1200px
+    margin: 0 auto
+    display: none
+
+  .menu-on-map
+    width: 343px
+    margin: 0 auto
+
+    .input-and-select
+      margin-top: 32px
+      z-index: 20
+      position: absolute
+      display: flex
+
+      select
+        display: none
+
+      .filter-btn
+        display: block
+        background: #FFF
+        border: 0px
+        border-radius: 8px
+        padding: 14px 14px 10px 14px
+        margin-left: 10px

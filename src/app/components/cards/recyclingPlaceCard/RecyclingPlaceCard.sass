@@ -16,6 +16,7 @@
 
     .recycling-place-information
       margin-left: 16px
+      text-align: left
 
       h3
         font-weight: 500
@@ -29,5 +30,46 @@
         font-size: 14px
         line-height: 18px
         color: rgba(0, 11, 38, 0.48)
-        width: 224px
         padding: 0px
+
+
+@media screen and (max-width: 375px)
+
+  .recycling-place-card-wrapper
+    background: #FFFFFF
+    border: 1px solid rgba(62, 80, 114, 0.12)
+    box-shadow: 0px 4px 24px rgba(0, 11, 38, 0.12)
+    border-radius: 16px
+    width: 343px
+    margin: 0 auto 16px
+
+  .cards-on-map-mob
+    width: 343px
+    margin: 0px auto
+
+  .image-information-wrapper
+    display: flex
+    padding: 16px
+
+    img
+      width: 112px
+      height: 78px
+
+    .recycling-place-information
+      margin-left: 16px
+
+      h3
+        font-weight: 500
+        font-size: 14px
+        line-height: 18px
+        margin: 0px
+        margin-bottom: 8px
+
+      p
+        font-weight: 400
+        font-size: 14px
+        line-height: 18px
+        color: rgba(0, 11, 38, 0.48)
+        width: 167px
+        padding: 0px
+

@@ -1,9 +1,9 @@
 import "./Product.sass";
 import {FC, useState} from "react";
 // @ts-ignore
-import balance from "../../../assets/balance.png";
-import {useStores} from "../../../utils/use-stores-hook";
-import {Promocode} from "../Modals/Promocode/Promocode";
+import balance from "../../../../assets/balance.png";
+import {useStores} from "../../../../utils/use-stores-hook";
+import {Promocode} from "../../Modals/Promocode/Promocode";
 import {useSpring} from "react-spring";
 
 interface Props{

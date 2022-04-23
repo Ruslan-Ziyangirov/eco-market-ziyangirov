@@ -1,9 +1,9 @@
 import {Header} from "../../components/header/Header";
 import "./EcoMarket.sass"
 import {Footer} from "../../components/footer/Footer";
-import {Product} from "../../components/productCard/Product";
+import {Product} from "../../components/cards/productCard/Product";
 import {Checkbox} from "../../components/ui/checkboxes/Checkbox";
-import {ButtonFilter} from "../../components/ui/buttons/filter/ButtonFilter";
+import {ButtonFilters} from "../../components/ui/buttons/filters/ButtonFilters";
 import Nike from "../../../assets/nike crocs.png";
 import Nike_Crocs from "../../../assets/nike_crocs.png";
 import Adidas_Crocs from "../../../assets/adidas_crocs.png";
@@ -11,6 +11,9 @@ import hudi from "../../../assets/nike_hudi.png";
 import React, {useEffect, useState} from "react";
 import {SkeletonEcoMarketPage} from "../../components/animation/skeletonEcoMarketPage/SkeletonEcoMarketPage";
 import axios from "axios";
+import {ButtonMedium} from "../../components/ui/buttons/medium/ButtonMedium";
+import {MarketBottomSheet} from "../../components/bottomSheet/marketBottomSheet/MarketBottomSheet";
+import {FilterCheckboxes} from "../../components/filterCheckboxes/FilterCheckboxes";
 
 interface Props{
     producer:string;
@@ -25,41 +28,10 @@ interface Product{
     checked: boolean;
 }
 
-const allGenders: Product[] = [
-    {name: "Мужской", checked: false},
-    {name: "Женский", checked:false}
-]
-
-
-const allTypes: Product[] = [
-    {name: "Одежда", checked: false},
-    {name: "Обувь", checked: false},
-    {name: "Аксессуары", checked: false}
-]
-
-const allBrands: Product[] = [
-    {name: "H&M", checked: false},
-    {name: "P&B", checked: false},
-    {name: "Adidas", checked: false},
-    {name: "Nike", checked: false},
-    {name: "Rebook", checked: false}
-]
-
-const allSortings: Product[] = [
-    { name: "По популярности", checked: false },
-    { name: "По цене", checked: false },
-    { name: "По новизне", checked: false },
-]
-
 
 export const EcoMarket = () =>{
 
-    const [genders, setGenders] = useState(allGenders);
-    const [types, setTypes] = useState(allTypes);
-    const [brands, setBrands] = useState(allBrands);
-    const [sortings, setSorting] = useState(allSortings)
-    const [allProductsTypes, setAllProductsTypes] = useState(false);
-    const [allProductsBrand, setAllProductsBrand] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const getProducts = () => {
         axios.get("market", {
@@ -79,31 +51,6 @@ export const EcoMarket = () =>{
         getProducts();
     };
 
-    const checkStatusProducts = (index: number, setProducts: any, products: Product[]) => {
-        setProducts(
-            products.map((product: Product, currentIndex: number) =>
-                currentIndex === index ? {...product, checked: !product.checked} : product
-            )
-        )
-    }
-
-    const handleClickSort = ( index: number ) => {
-        setSorting(sortings.map((sorting: Product, currentIndex: number) => currentIndex === index ?
-            {...sorting, checked: true}
-            : {...sorting, checked: false}))
-
-    }
-
-
-    const checkStatucAllProducts = (isAllProducts: boolean, setAllProducts: any, setProducts:any, products:Product[]) => {
-        setAllProducts(!isAllProducts)
-        setProducts(
-            products.map((product:Product) =>
-                isAllProducts ? {...product, checked: false} :
-                    {...product, checked: true}
-            )
-        )
-    }
 
     const products: Array<Props> = [
         {
@@ -134,6 +81,10 @@ export const EcoMarket = () =>{
         },
     ];
 
+    const onFilterClick = () => {
+        setIsOpen(!isOpen);
+    };
+
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -148,73 +99,21 @@ export const EcoMarket = () =>{
         <div className="ecomarket-page">
             {loading ? <SkeletonEcoMarketPage/> :
                 <div className="body-for-ecomarket-page">
-
-
                     <div className="header-and-button-filter">
                         <h1>ЭкоМаркет</h1>
+                        <ButtonMedium title={"Фильтры"}
+                                      color={"rgba(0, 11, 38, 0.8)"}
+                                      background={"rgba(62, 80, 114, 0.08)"}
+                                      onClick={onFilterClick}/>
 
-                        <div>
-                            {sortings.map((sorting,index)=>(
-                                    <ButtonFilter
-                                        title={sorting.name}
-                                        type={"button"}
-                                        isActive={sorting.checked}
-                                        onClick={() =>{
-                                            handleClickSort(index)
-                                            console.log("Кнопка жмякает и фильтрует")
-                                        }}
-                                    />
-                                )
-                            )}
+                        <div className="button-filters">
+                            <ButtonFilters type={"button"}/>
                         </div>
                     </div>
                     <div className="filter-and-table">
-                        <aside className="filter-wrapper">
-                            <div className="block-of-filter">
-                                <h5>Пол</h5>
-                                {genders.map((gender, index) =>(
-                                        <Checkbox
-                                            isChecked={gender.checked}
-                                            checkHandler={() => checkStatusProducts(index, setGenders, genders)}
-                                            title={gender.name}
-                                            index={index}
-                                        />
-                                    )
-                                )}
-                            </div>
-
-                            <div className="block-of-filter">
-                                <h5>Тип товара</h5>
-                                <Checkbox
-                                    isChecked={allProductsTypes}
-                                    checkHandler={() => checkStatucAllProducts(allProductsTypes, setAllProductsTypes, setTypes, types)}
-                                    title={"Выбрать все"}
-                                />
-                                {types.map((type, index)=>
-                                    <Checkbox
-                                        isChecked={type.checked}
-                                        checkHandler={() => checkStatusProducts(index, setTypes, types)}
-                                        title={type.name}
-                                        index={index} />
-                                )}
-                            </div>
-
-                            <div className="block-of-filter">
-                                <h5>Бренд</h5>
-                                <Checkbox
-                                    isChecked={allProductsBrand}
-                                    checkHandler={() => checkStatucAllProducts(allProductsBrand, setAllProductsBrand, setBrands, brands)}
-                                    title={"Выбрать все"}
-                                />
-                                {brands.map((brand, index)=>
-                                    <Checkbox
-                                        isChecked={brand.checked}
-                                        checkHandler={() => checkStatusProducts(index, setBrands, brands)}
-                                        title={brand.name}
-                                        index={index} />
-                                )}
-                            </div>
-                        </aside>
+                        <div className="filter-wrapper">
+                            <FilterCheckboxes/>
+                        </div>
                         <div className="table-products">
                             {products.map(item => (
                                 <Product
@@ -231,7 +130,7 @@ export const EcoMarket = () =>{
 
                 </div>
             }
-
+            <MarketBottomSheet isOpen={isOpen}/>
             <Footer/>
         </div>
     )

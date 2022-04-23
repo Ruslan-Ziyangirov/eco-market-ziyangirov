@@ -7,16 +7,19 @@ import reportWebVitals from './reportWebVitals';
 import mainStore from "./app/stores/mainStore";
 import {ModalConstructor} from "./app/components/Modals/ModalConstructor";
 import axios from "axios";
+import { BrowserRouter } from 'react-router-dom';
 
 axios.defaults.baseURL = 'https://ecoapp.cloud.technokratos.com/eco-rus/api/v1';
 
 ReactDOM.render(
   <React.StrictMode>
-      <Provider {...mainStore}>
-          <App />
+      <BrowserRouter>
+          <Provider {...mainStore}>
+              <App />
 
-          <ModalConstructor />
-      </Provider>
+              <ModalConstructor />
+          </Provider>
+      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

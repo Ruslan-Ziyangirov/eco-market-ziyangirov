@@ -2,7 +2,8 @@
   display: flex
   align-items: center
   justify-content: center
-  width: 1300px
+  max-width: 1300px
+  width: 100%
   margin: 0 auto
 
 .swiper
@@ -107,6 +108,76 @@ p
     align-items: center
 
 
+@media screen and (max-width: 850px)
+  .slider
+    display: flex
+    align-items: center
+    justify-content: center
+    max-width: 850px
+    width: 100%
+    margin: 0 auto
+
+  .swiper
+    width: 750px
+    height: 320px
+    margin: 40px auto 0
+    background: #ffffff
+    border-radius: 24px
+
+  .slaid-information
+    width: 343px
+    margin-left: 64px
+
+  h2
+    margin: 0
+    font-size: 28px
+    line-height: 28px
+    padding-top: 48px
+    padding-bottom: 16px
+    font-weight: 700
+    color: #000B26
+
+  p
+    margin: 0px
+    font-weight: 400
+    font-size: 16px
+    line-height: 24px
+    padding-bottom: 24px
+
+
+  .swiper-button-prev-new
+    background: #FFFFFF no-repeat center
+    box-shadow: 0px 4px 24px rgba(0, 11, 38, 0.12)
+    border-radius: 50px
+    height: 44px
+    width: 44px
+    z-index: 2
+    position: relative
+    top: -6px
+    left: 25px
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .swiper-button-prev-new::after
+    display: none
+
+
+  .swiper-button-next-new
+    background: #FFFFFF no-repeat center
+    box-shadow: 0px 4px 24px rgba(0, 11, 38, 0.12)
+    border-radius: 50px
+    height: 44px
+    width: 44px
+    z-index: 2
+    position: relative
+    left: -25px
+    cursor: pointer
+    top: -6px
+    display: flex
+    align-items: center
+    justify-content: center
 
 
 @media screen and (max-width: 375px)
@@ -135,11 +206,17 @@ p
 
   .background-second
     border-radius: 0px
-    background: url("../../../assets/slide-second.png")
+    height: 425px
+    background: url("../../../assets/bg-second-slaid-mb.png")
+    p
+      width: 343px
 
   .background-third
     border-radius: 0px
-    background: url("../../../assets/slide-third.png")
+    height: 425px
+    background: url("../../../assets/bg-third-slaid-mg.png")
+    p
+      width: 343px
 
   h2
     margin: 0
@@ -190,6 +267,9 @@ p
 
     .swiper-button-next-u, .swiper-button-prev-u
       display: none
+
+
+
 
 
 

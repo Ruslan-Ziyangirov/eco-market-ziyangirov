@@ -7,15 +7,19 @@ import {EcoMarket} from "./app/pages/ecoMarket/EcoMarket";
 import {Header} from "./app/components/header/Header";
 import {RecyclingPlaces} from "./app/pages/recyclingPlaces/RecyclingPlaces";
 
-const App = () => (
-    <BrowserRouter>
-        <Header/>
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/ecomarket" element={<EcoMarket/>}/>
-            <Route path="/recyclingplaces" element={<RecyclingPlaces/>}/>
-        </Routes>
-    </BrowserRouter>
-)
+const App = () => {
+    return (
+        <>
+            <Header/>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/ecomarket" element={<EcoMarket/>}/>
+                <Route path="/recyclingplaces" element={<RecyclingPlaces/>}/>
+            </Routes>
+
+        </>
+    )
+
+}
 
 export default App;
