@@ -3,7 +3,7 @@ import {observe} from "web-vitals/dist/modules/lib/observe";
 import {observer} from "mobx-react";
 import {useStores} from "../../../../utils/use-stores-hook";
 import {FC, useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "./SignIn.sass"
 import {Button} from "../../ui/buttons/large/Button";
 import * as Yup from "yup";
@@ -43,6 +43,8 @@ export const Icon: FC<Props> = ({ name, height,width}) => {
 export const SignIn = observer( () =>{
     const { modalStore: {clearCurrentModal, setCurrentModal} } = useStores();
 
+    let router = useNavigate();
+
     const schemaIn = Yup.object().shape({
         password: Yup.string()
             .required("Пожалуйста,введите пароль")
@@ -68,6 +70,10 @@ export const SignIn = observer( () =>{
     const onSignInForPartner = () => {
         clearCurrentModal();
         setCurrentModal(SignInForPartner);
+    }
+
+    const onProfile = () =>{
+        router('/profile')
     }
 
     const onSignIn = (values: FormikValues) => {
@@ -128,11 +134,8 @@ export const SignIn = observer( () =>{
                                     color="#FFF"
                                     background="#07C88E"
                                     type="submit"
-                                    onClick={()=>{
-                                        console.log(values.email)
-                                    }}
+                                    onClick={onProfile}
                                 />
-
                             </form>
 
                         </div>

@@ -1,13 +1,13 @@
 .history-card-wrapper
-  width: 45vw
+  margin-top: 24px
+  width: 768px
   display: flex
-  flex-direction: row
   justify-content: space-between
   align-items: flex-start
   padding: 32px
-  border: 1px solid $c-light-grey
+  border: 1px solid #E0E0E0
   border-radius: 20px
-  margin-bottom: 20px
+  margin-bottom: 16px
 
   .history-information-wrapper
     display: flex
@@ -20,6 +20,8 @@
       font-size: 14px
       line-height: 18px
       color: rgba(0, 11, 38, 0.4)
+      padding-bottom: 4px
+
 
     h5
       font-weight: 400
@@ -32,8 +34,39 @@
     flex-direction: row
     align-items: center
 
+    img
+      width: 24px
+      height: 24px
+
     h4
       font-weight: 600
       font-size: 14px
       line-height: 20px
       color: #000000
+      margin: 0px
+      margin-left: 8px
+
+@media screen and (max-width: 1250px)
+  .history-card-wrapper
+    width: 650px
+
+
+
+@media screen and (max-width: 1100px)
+  .history-card-wrapper
+    width: 420px
+
+
+@media screen and (max-width: 850px)
+  .history-card-wrapper
+    width: 320px
+
+
+@media screen and (max-width: 375px)
+  .history-card-wrapper
+    width: 279px
+    display: block
+    justify-content: space-between
+    align-items: flex-start
+
+

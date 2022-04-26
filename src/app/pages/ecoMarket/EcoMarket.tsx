@@ -105,11 +105,8 @@ export const EcoMarket = () =>{
                                       color={"rgba(0, 11, 38, 0.8)"}
                                       background={"rgba(62, 80, 114, 0.08)"}
                                       onClick={onFilterClick}/>
-
-
                         <div className="button-filters">
                             <ButtonFilters type={"button"}/>
-
                         </div>
                     </div>
                     <div className="filter-and-table">
@@ -124,7 +121,7 @@ export const EcoMarket = () =>{
                                     gender={item.gender}
                                     price={item.price}
                                     path={item.img}
-                                    producer={item.producer}></Product>
+                                    producer={item.producer}/>
                             ))}
                         </div>
 

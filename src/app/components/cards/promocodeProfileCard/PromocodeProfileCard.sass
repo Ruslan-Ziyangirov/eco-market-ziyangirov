@@ -1,11 +1,8 @@
 .promocode-card-wrapper
   width: 768px
-  height: 110px
   display: flex
-  flex-direction: row
-  margin: 24px 0px
-  border-radius: 20px
-  align-items: center
+
+  margin: 24px 0px 24px 0px
 
   .cost-wrapper
     border-radius: 12px
@@ -20,20 +17,42 @@
       color: #FFFFFF
       text-align: center
 
-  .promocode-information-wrapprer
-    margin: 4px 0px
+  .promocode-information-wrapper
     text-align: left
     font-size: 14px
     line-height: 18px
+    margin-left: 24px
 
     p
       font-weight: 500
       color: rgba(0, 11, 38, 0.4)
+      padding: 0px
 
     h4
       color: rgba(0, 11, 38, 0.88)
       font-weight: 400
+      margin: 4px 0px 16px
 
     h5
       color: #07C88E
       font-weight: 400
+      margin-top: 4px
+      margin-bottom: 0px
+
+@media screen and (max-width: 375px)
+  .promocode-card-wrapper
+    width: 343px
+    display: block
+
+    .cost-wrapper
+      width: 100%
+      align-items: center
+      height: 210px
+
+      h3
+        padding-top: 85px
+
+    .promocode-information-wrapper
+      margin-top: 24px
+      margin-left: 0px
+

@@ -16,10 +16,10 @@ export const ProfileCard:FC<Props> = ({image, name, telephone, email}) => {
                 <img src={image}/>
                 <div className="information-about-user">
                     <h3>{name}</h3>
-                    <h4>{telephone}</h4>
+                    <p>{telephone}</p>
                     <p>{email}</p>
                 </div>
-                <Button title={"Редактировать"} color={"#000B26CC"} background={"#3E507214"}/>
+                <Button title={"Редактировать"} color={"#000B26CC"} background={"#3E507214"} width={"320px"}/>
             </div>
         </div>
     )
