@@ -1,23 +1,18 @@
 .profile-card-wrapper
   background: #FFFFFF
   border: 1px solid rgba(62, 80, 114, 0.16)
-  box-sizing: border-box
   border-radius: 20px
   width: 384px
-  height: 392px
-  position: absolute
 
   .information-profile-wrapper
-    display: flex
-    padding: 32px
+    width: 320px
+    margin: 32px auto
 
     img
       width: 128px
       height: 128px
-      flex: none
-      order: 0
-      flex-grow: 0
-      margin: 24px 0px
+      margin: 0 auto
+      display: block
 
     .information-about-user
       margin: 16px 0px
@@ -44,3 +39,8 @@
         color: rgba(0, 11, 38, 0.72)
         order: 1
         margin: 12px 0px
+        padding: 0px
+
+@media screen and (max-width: 375px)
+  .profile-card-wrapper
+    width: 343px
